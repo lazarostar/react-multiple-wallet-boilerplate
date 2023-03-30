@@ -11,7 +11,7 @@
     "trustwallet",
     "walletconnect"
   ],
-  "description": "React boilerplate project with the functionality to integrate multiple wallets including Metamask, TrustWallet and WalletConnect",
+  "description": "React boilerplate project to integrate multiple wallets including Metamask, TrustWallet and WalletConnect",
   "author": {
     "email": "nascimento.dev26@gmail.com",
     "name": "Lazaro Nascimento"

@@ -1,5 +1,16 @@
 {
   "name": "react-multiple-wallet-boilerplate",
+  "keywords": [
+    "react",
+    "crypto",
+    "wallet",
+    "web3",
+    "multiple",
+    "metamask",
+    "trust",
+    "trustwallet",
+    "walletconnect"
+  ],
   "description": "React boilerplate project with the functionality to integrate multiple wallets including Metamask, TrustWallet and WalletConnect",
   "author": {
     "email": "nascimento.dev26@gmail.com",

@@ -1,13 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { WalletProvider } from "./contexts/walletContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { hooks as metaMaskHooks, metaMask } from "./connectors/metaMask";
+import {
+  hooks as walletConnectHooks,
+  walletConnect,
+} from "./connectors/walletConnect";
+import {
+  hooks as trustWalletHooks,
+  trustWallet,
+} from "./connectors/trustWallet";
+import { Web3ReactProvider } from "@web3-react/core";
+
+const connectors = [
+  [metaMask, metaMaskHooks],
+  [walletConnect, walletConnectHooks],
+  [trustWallet, trustWalletHooks],
+];
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Web3ReactProvider connectors={connectors}>
+      <WalletProvider>
+        <App />
+      </WalletProvider>
+    </Web3ReactProvider>
   </React.StrictMode>
 );
 

@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useWallet } from "./contexts/walletContext";
+import { WalletTypes } from "./values/WalletTypes";
 
 function App() {
+  const {
+    accountAddress,
+    isConnecting,
+    isConnected,
+    isError,
+    error,
+    connect,
+    disconnect,
+  } = useWallet();
+
+  if (isError) return <div>Error: {error}</div>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      {isConnected ? (
+        <div>
+          {accountAddress}
+          <button onClick={disconnect}>Disconnect</button>
+        </div>
+      ) : isConnecting ? (
+        <div>Connecting ...</div>
+      ) : (
+        <div>
+          <button onClick={() => connect(WalletTypes.METAMASK)}>
+            Metamask
+          </button>
+          <button onClick={() => connect(WalletTypes.WALLETCONNECT)}>
+            Wallet Connect
+          </button>
+          <button onClick={() => connect(WalletTypes.TRUSTWALLET)}>
+            Trust Wallet
+          </button>
+        </div>
+      )}
     </div>
   );
 }

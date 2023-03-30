@@ -1,17 +1,28 @@
 {
-  "name": "dietgpt-app",
+  "name": "react-multiple-wallet-boilerplate",
+  "description": "React boilerplate project with the functionality to integrate multiple wallets including Metamask, TrustWallet and WalletConnect",
+  "author": {
+    "email": "nascimento.dev26@gmail.com",
+    "name": "Lazaro Nascimento"
+  },
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
+    "@web3-react/core": "^8.1.2-beta.0",
+    "@web3-react/metamask": "^8.1.2-beta.0",
+    "@web3-react/types": "^8.1.2-beta.0",
+    "@web3-react/walletconnect": "^8.1.2-beta.0",
+    "buffer": "^6.0.3",
+    "ethers": "^6.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "web3": "^1.9.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "serve": "serve -s build -l 3000"
   },
   "eslintConfig": {
     "extends": [
@@ -29,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.0.0",
+    "craco-webpack-resolve": "^1.2.1"
   }
 }
